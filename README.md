@@ -39,9 +39,3 @@ From the project folder:
 javac -d out src\main\java\app\*.java src\main\java\datastructures\*.java src\main\java\exceptions\*.java src\main\java\model\*.java src\main\java\service\*.java src\main\java\util\*.java
 java -cp out app.Main
 ```
-
-**Linux / macOS**
-```
-javac -d out $(find src -name "*.java")
-java -cp out app.Main
-```
