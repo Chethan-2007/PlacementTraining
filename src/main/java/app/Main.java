@@ -78,7 +78,7 @@ public class Main {
             }
         } while (choice != 5);
     }
-
+// for booking room
     static void bookRoom() {
         String name = InputHelper.readString(sc, "Guest name: ");
         String phone = InputHelper.readString(sc, "Phone: ");
