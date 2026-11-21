@@ -3,6 +3,7 @@ package app;
 import datastructures.WaitingListQueue;
 import exceptions.BookingNotFoundException;
 import exceptions.InvalidRoomException;
+import java.util.Scanner;
 import model.Admin;
 import model.Booking;
 import model.Guest;
@@ -13,8 +14,6 @@ import service.RoomService;
 import service.TariffService;
 import util.InputHelper;
 import util.OccupancyReport;
-
-import java.util.Scanner;
 
 /** Command-line entry point of the Hotel Room Booking System. */
 public class Main {
@@ -111,19 +110,17 @@ public class Main {
         if (nights <= 0) {
             System.out.println("Nights must be at least 1.");
             return;
-        }
+        }//tested
         try {
             Booking b = bookingService.checkOut(id, nights);
             if (b != null) {
-                // room is free now - give it to the first guest waiting for this type
                 reservationService.promoteFromWaitingList(b.getRoomType());
             }
         } catch (BookingNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
-
-    // ---------------- Admin menu ----------------
+    //ft
     static void adminMenu(Admin admin) {
         System.out.println("\nLogged in as " + admin.getRole());
         int choice;
