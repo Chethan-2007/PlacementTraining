@@ -2,12 +2,9 @@ package service;
 
 import exceptions.InvalidRoomException;
 import exceptions.RoomNotAvailableException;
-import model.Room;
-
 import java.util.ArrayList;
 import java.util.List;
-
-/** Keeps the list of rooms and finds vacant ones. */
+import model.Room;
 public class RoomService {
 
     public static final String[] ROOM_TYPES = {"Single", "Double", "Suite"};
@@ -21,16 +18,12 @@ public class RoomService {
     }
 
     public List<Room> getRooms() { return rooms; }
-
-    /** Returns the properly spelled type, or throws if the type does not exist. */
     public String validateType(String type) throws InvalidRoomException {
         for (String t : ROOM_TYPES) {
             if (t.equalsIgnoreCase(type)) return t;
         }
         throw new InvalidRoomException("Invalid room type '" + type + "'. Choose Single, Double or Suite.");
     }
-
-    /** Room allocation: give the first vacant room of this type. */
     public Room allocateRoom(String type) throws RoomNotAvailableException {
         for (Room r : rooms) {
             if (!r.isOccupied() && r.getType().equalsIgnoreCase(type)) {
