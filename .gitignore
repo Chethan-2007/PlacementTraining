@@ -1,0 +1,9 @@
+# compiled output
+out/
+bin/
+*.class
+
+# IDE
+.vscode/
+.idea/
+*.iml
