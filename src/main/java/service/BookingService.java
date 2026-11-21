@@ -1,13 +1,10 @@
 package service;
 
 import exceptions.BookingNotFoundException;
-import model.Booking;
-import model.Guest;
-
 import java.util.ArrayList;
 import java.util.List;
-
-/** Stores bookings and handles check-in and check-out. */
+import model.Booking;
+import model.Guest;
 public class BookingService {
 
     private final List<Booking> bookings = new ArrayList<>();
@@ -31,7 +28,6 @@ public class BookingService {
         throw new BookingNotFoundException("Booking #" + id + " not found.");
     }
 
-    /** Check-in: only allowed once a room has been allocated. */
     public void checkIn(int id) throws BookingNotFoundException {
         Booking b = findById(id);
         switch (b.getStatus()) {
@@ -47,8 +43,6 @@ public class BookingService {
                 System.out.println("Cannot check in - booking status is " + b.getStatus() + ".");
         }
     }
-
-    /** Check-out: calculates the bill and frees the room. Returns null if not possible. */
     public Booking checkOut(int id, int nights) throws BookingNotFoundException {
         Booking b = findById(id);
         if (b.getStatus() != Booking.Status.CHECKED_IN) {
