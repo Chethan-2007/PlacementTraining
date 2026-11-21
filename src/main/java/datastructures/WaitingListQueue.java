@@ -1,11 +1,6 @@
 package datastructures;
 
 import model.Booking;
-
-/**
- * Our own Queue (linked list, First-In-First-Out).
- * Guests wait here when no room of their type is free.
- */
 public class WaitingListQueue {
 
     private static class Node {
@@ -15,8 +10,8 @@ public class WaitingListQueue {
         Node(Booking data) { this.data = data; }
     }
 
-    private Node front;   // first guest in line
-    private Node rear;    // last guest in line
+    private Node front;
+    private Node rear;
     private int size;
 
     /** Add a guest at the end of the line. */
