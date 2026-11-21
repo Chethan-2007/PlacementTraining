@@ -1,8 +1,6 @@
 package util;
 
 import java.util.Scanner;
-
-/** Small helpers so wrong input does not crash the program. */
 public class InputHelper {
 
     public static int readInt(Scanner sc, String prompt) {
